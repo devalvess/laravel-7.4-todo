@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="min-vh-100 d-flex justify-content-center align-items-center">
-        <form class="mw-100" action="{{ route('signup') }}" method="post" style="width: 400px;">
+        <form class="mw-100" action="{{ route('signup') }}" method="POST" style="width: 400px;">
             @csrf
 
             <h1 class="mb-5 text-secondary text-center">Cadastro</h1>
