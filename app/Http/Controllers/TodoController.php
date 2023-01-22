@@ -119,7 +119,7 @@ class TodoController extends Controller
 
             // Verificar se TODO é do usuário
             if ($todo->user_id !== $user->id) {
-                return response('', 403);
+                return response('', 404);
             }
 
             $todo->update ([
