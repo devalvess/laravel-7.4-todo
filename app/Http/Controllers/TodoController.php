@@ -104,10 +104,10 @@ class TodoController extends Controller
         $todo = Todo::find($id);
         $user = auth()->user();
 
-            // Verificar se TODO é do usuário
-            if ($todo->user_id !== $user->id) {
-                return response('', 404);
-            }
+        // Verificar se TODO é do usuário
+        if ($todo->user_id !== $user->id) {
+            return response('', 403);
+        }
 
         Return view('edit', compact('todo'));
     }
@@ -118,14 +118,14 @@ class TodoController extends Controller
         $user = auth()->user();
 
             // Verificar se TODO é do usuário
-            if ($todo->user_id !== $user->id) {
-                return response('', 404);
-            }
+        if ($todo->user_id !== $user->id) {
+            return response('', 403);
+        }
 
-            $todo->update ([
-                'title'=> $request->title,
-                'color'=> $request->color
-            ]);
+        $todo->update ([
+            'title'=> $request->title,
+            'color'=> $request->color
+        ]);
 
             return redirect('/dashboard');
             
