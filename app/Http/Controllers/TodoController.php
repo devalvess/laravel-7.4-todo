@@ -83,6 +83,9 @@ class TodoController extends Controller
     public function destroy(Todo $todo)
     {
         try {
+
+            $user = auth()->user();
+            
             // Verificar se TODO é do usuário
             if ($todo->user_id !== $user->id) {
                 return response('', 403);
